@@ -71,15 +71,13 @@
     <!-- Main Navigation Bar -->
     <header class="sticky top-0 z-40 bg-brand-dark/90 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
+            <!-- Brand Logo with Image & Text -->
             <a href="#" class="flex items-center gap-3 group">
-                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-teal to-brand-cyan p-0.5 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-                    <div class="w-full h-full bg-brand-dark rounded-[10px] flex items-center justify-center">
-                        <i class="fa-solid fa-camera-security text-brand-cyan text-xl"></i>
-                    </div>
+                <div class="h-14 w-auto flex items-center justify-center p-1 bg-slate-800/80 rounded-xl border border-slate-700/80 group-hover:border-brand-cyan transition-all">
+                    <img src="logo.png" alt="Sentinel Guard System Logo" class="h-12 w-auto object-contain drop-shadow" onerror="this.onerror=null; this.src='logo.jpg';">
                 </div>
                 <div>
-                    <span class="text-xl font-extrabold tracking-tight text-white block leading-tight">SENTINEL</span>
+                    <span class="text-xl font-extrabold tracking-tight text-white block leading-tight group-hover:text-brand-cyan transition-colors">SENTINEL</span>
                     <span class="text-xs font-semibold tracking-wider text-brand-cyan block">GUARD SYSTEM</span>
                 </div>
             </a>
@@ -175,8 +173,14 @@
                     </div>
                 </div>
 
-                <!-- Right Feature Banner / Card -->
-                <div class="lg:col-span-5">
+                <!-- Right Feature Banner / Logo Showcase Card -->
+                <div class="lg:col-span-5 space-y-6" id="repair">
+                    <!-- High-Impact Logo Display Badge -->
+                    <div class="bg-slate-800/60 p-4 rounded-2xl border border-slate-700/60 flex items-center justify-center backdrop-blur-sm">
+                        <img src="logo.png" alt="Sentinel Guard System Security Camera Emblem" class="h-44 w-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='logo.jpg';">
+                    </div>
+
+                    <!-- Repair Special Box -->
                     <div class="bg-gradient-to-br from-brand-cardBg to-slate-800 p-6 rounded-2xl border border-slate-700 shadow-2xl relative overflow-hidden glow-effect">
                         <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-cyan/10 rounded-full blur-2xl"></div>
                         <div class="flex items-center gap-4 border-b border-slate-700 pb-4 mb-4">
@@ -619,11 +623,15 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 text-slate-500 py-8 border-t border-slate-800 text-xs text-center">
-        <div class="max-w-7xl mx-auto px-4">
-            <p class="text-slate-400 font-semibold mb-2">SENTINEL GUARD SYSTEM - INTEGRATED SOLUTIONS</p>
-            <p>Securing Today, Protecting Tomorrow. &copy; 2026. All Rights Reserved.</p>
+    <!-- Footer Section -->
+    <footer class="bg-slate-950 text-slate-500 py-10 border-t border-slate-800 text-xs text-center">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center justify-center space-y-4">
+            <!-- Footer Logo Image -->
+            <img src="logo.png" alt="Sentinel Guard System Logo" class="h-16 w-auto object-contain drop-shadow" onerror="this.onerror=null; this.src='logo.jpg';">
+            <div>
+                <p class="text-slate-300 font-bold text-sm tracking-wider">SENTINEL GUARD SYSTEM - INTEGRATED SOLUTIONS</p>
+                <p class="text-slate-400 mt-1">Securing Today, Protecting Tomorrow. &copy; 2026. All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
 
@@ -679,14 +687,23 @@
 
         function handleFormSubmit(e) {
             e.preventDefault();
-            alert('Thank you for contacting Sentinel Guard System! Our team will get in touch with you shortly.');
+            // Custom modal replacement for alert
+            const banner = document.createElement('div');
+            banner.className = 'fixed top-6 right-6 bg-emerald-500 text-slate-950 p-4 rounded-xl font-bold shadow-2xl z-50 animate-bounce';
+            banner.innerHTML = '<i class="fa-solid fa-circle-check mr-2"></i> Thank you! Inquiry submitted successfully.';
+            document.body.appendChild(banner);
+            setTimeout(() => banner.remove(), 4000);
             e.target.reset();
         }
 
         function handleModalSubmit(e) {
             e.preventDefault();
-            alert('Request submitted successfully! We will call you soon.');
             closeModal();
+            const banner = document.createElement('div');
+            banner.className = 'fixed top-6 right-6 bg-emerald-500 text-slate-950 p-4 rounded-xl font-bold shadow-2xl z-50 animate-bounce';
+            banner.innerHTML = '<i class="fa-solid fa-circle-check mr-2"></i> Request submitted! We will contact you soon.';
+            document.body.appendChild(banner);
+            setTimeout(() => banner.remove(), 4000);
             e.target.reset();
         }
     </script>
