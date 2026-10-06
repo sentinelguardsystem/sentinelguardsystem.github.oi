@@ -1,1 +1,1 @@
-Sentinel Guard System - Integrated Security Solutions
+https://github.com/sentinelguardsystem/sentinelguardsystem.git
